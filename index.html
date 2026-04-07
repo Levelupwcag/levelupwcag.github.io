@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LevelUp WCAG &mdash; Website Accessibility Fixes | Pakistan</title>
+  <meta name="description" content="Your website is silently losing customers. LevelUp fixes accessibility errors that block users and hurt your Google ranking. Free audit available." />
+  <meta name="keywords" content="website accessibility Pakistan, WCAG fixes, website errors fix, web accessibility Faisalabad" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="sticky-audit">
+    <button class="sticky-btn" onclick="scrollToForm()" aria-label="Get free website audit">&#9654; Free Audit</button>
+  </div>
+
+  <header class="site-header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="brand" aria-label="LevelUp WCAG Home">
+        <span class="brand__level">Level</span><span class="brand__up">Up</span><span class="brand__tag">WCAG</span>
+      </a>
+      <nav aria-label="Primary navigation" class="main-nav">
+        <ul class="nav__list" role="list">
+          <li><a class="nav__link" href="#problem">Problem</a></li>
+          <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#results">Results</a></li>
+          <li><a class="nav__link" href="#faq">FAQ</a></li>
+          <li><a class="nav__link nav__cta" href="#audit-form">Free Audit</a></li>
+        </ul>
+      </nav>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation menu" id="navToggle">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+      <ul role="list">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#audit-form" class="mobile-nav__cta">Free Audit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="heroHeading">
+      <div class="container hero__inner">
+        <div class="hero__badge">WCAG Verified Fixes &mdash; Pakistan</div>
+        <h1 id="heroHeading" class="hero__title">
+          Your Website is<br>
+          <span class="accent">Blocking Customers</span><br>
+          And You Don&rsquo;t Even Know It
+        </h1>
+        <p class="hero__sub">Hidden technical errors stop people from using your site &mdash; costing you sales every single day. We find them, fix them, and prove it with a verified report.</p>
+        <div class="hero__actions">
+          <a href="#audit-form" class="btn btn--primary">Get Free Audit</a>
+          <a href="#results" class="btn btn--ghost">See Our Results</a>
+        </div>
+        <div class="trust-bar" role="list" aria-label="Trust indicators">
+          <div class="trust-item" role="listitem"><span class="trust-num">3</span><span class="trust-label">Sites Fixed</span></div>
+          <div class="trust-item" role="listitem"><span class="trust-num">10.0</span><span class="trust-label">AIM Score Achieved</span></div>
+          <div class="trust-item" role="listitem"><span class="trust-num">0</span><span class="trust-label">Errors Remaining</span></div>
+          <div class="trust-item" role="listitem"><span class="trust-num">WAVE</span><span class="trust-label">Verified Results</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section section--alt" id="problem" aria-labelledby="problemHeading">
+      <div class="container">
+        <p class="eyebrow">The Hidden Problem</p>
+        <h2 id="problemHeading">Your Website Has a Silent Problem</h2>
+        <p class="section__sub">Most Pakistani business owners run ads, have a website, and still wonder why sales are low. The answer is usually hiding inside the website itself.</p>
+        <div class="stats-row" role="list">
+          <div class="stat-card" role="listitem">
+            <span class="stat-num">55%</span>
+            <p>of customers abandon a purchase due to website issues</p>
+            <span class="stat-source">UK Consumer Study</span>
+          </div>
+          <div class="stat-card" role="listitem">
+            <span class="stat-num">28%</span>
+            <p>higher revenue for businesses with accessible websites</p>
+            <span class="stat-source">Level Access Report</span>
+          </div>
+          <div class="stat-card" role="listitem">
+            <span class="stat-num">1.3B</span>
+            <p>people globally have some form of disability affecting web use</p>
+            <span class="stat-source">World Health Organization</span>
+          </div>
+        </div>
+        <div class="problem-cards" role="list">
+          <div class="problem-card" role="listitem">
+            <div class="problem-icon" aria-hidden="true">&#9888;</div>
+            <h3>Bad User Experience</h3>
+            <p>Broken buttons, unreadable text, and missing labels make your site frustrating. Visitors leave without buying.</p>
+          </div>
+          <div class="problem-card" role="listitem">
+            <div class="problem-icon" aria-hidden="true">&#8595;</div>
+            <h3>Lower Google Ranking</h3>
+            <p>Google rewards accessible websites with better rankings. Errors in your site pull your SEO down silently.</p>
+          </div>
+          <div class="problem-card" role="listitem">
+            <div class="problem-icon" aria-hidden="true">&#9654;</div>
+            <h3>Lost Sales Every Day</h3>
+            <p>Every day your site has these errors is a day customers are walking away without telling you why.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services" aria-labelledby="servicesHeading">
+      <div class="container">
+        <p class="eyebrow">What We Fix</p>
+        <h2 id="servicesHeading">We Fix What&rsquo;s Blocking Your Sales</h2>
+        <p class="section__sub">One clear package. Six proven fixes. Delivered in 7 days with a verified WAVE report.</p>
+        <div class="service-layout">
+          <div class="service-package">
+            <div class="pkg-header">
+              <span class="pkg-badge">Basic Package</span>
+              <div class="pkg-price">
+                <span class="pkg-amount">Rs. 21,500</span>
+                <span class="pkg-note">one-time investment</span>
+              </div>
+            </div>
+            <ul class="pkg-list" role="list">
+              <li><span class="chk" aria-hidden="true">&#10003;</span><div><strong>Image Alt Text</strong><p>Every image gets a description so Google and users can understand it.</p></div></li>
+              <li><span class="chk" aria-hidden="true">&#10003;</span><div><strong>Color Contrast Fix</strong><p>Hard-to-read text gets fixed so everyone can read it clearly.</p></div></li>
+              <li><span class="chk" aria-hidden="true">&#10003;</span><div><strong>Button Labels</strong><p>Unlabelled buttons get proper descriptions.</p></div></li>
+              <li><span class="chk" aria-hidden="true">&#10003;</span><div><strong>Link Descriptions</strong><p>Vague links get replaced with meaningful text that helps users and Google.</p></div></li>
+              <li><span class="chk" aria-hidden="true">&#10003;</span><div><strong>Form Labels</strong><p>Every form field gets a clear label so customers can fill it easily.</p></div></li>
+              <li><span class="chk" aria-hidden="true">&#10003;</span><div><strong>Basic ARIA Fixes</strong><p>Technical markers added so your site works with assistive technology.</p></div></li>
+            </ul>
+            <a href="#audit-form" class="btn btn--primary btn--full">Start with Free Audit</a>
+          </div>
+          <div class="how-it-works">
+            <h3>How It Works</h3>
+            <ol class="steps" aria-label="Our 3-step process">
+              <li class="step"><span class="step-num" aria-hidden="true">1</span><div><strong>Free Audit</strong><p>We check your site using WAVE and send you a full report. Completely free.</p></div></li>
+              <li class="step"><span class="step-num" aria-hidden="true">2</span><div><strong>We Fix on Staging</strong><p>All fixes happen on a test version. You approve before anything goes live.</p></div></li>
+              <li class="step"><span class="step-num" aria-hidden="true">3</span><div><strong>Go Live &amp; Get Report</strong><p>You approve, we go live. You get a before &amp; after WAVE report.</p></div></li>
+            </ol>
+            <div class="guarantee-box" role="note">
+              <p><strong>50% advance. 50% after you approve.</strong><br>You only pay the second half after seeing the fixed version. Zero risk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section section--alt" id="results" aria-labelledby="resultsHeading">
+      <div class="container">
+        <p class="eyebrow">Proven Results</p>
+        <h2 id="resultsHeading">Real Fixes. Real Results. WAVE Verified.</h2>
+        <p class="section__sub">Every result below is verified by wave.webaim.org &mdash; the industry standard accessibility testing tool.</p>
+        <div class="case-grid" role="list">
+
+          <article class="case-card" role="listitem" aria-labelledby="cs1">
+            <h3 id="cs1">Pakzon E-Commerce Store</h3>
+            <p class="case-client">Sara Khan &mdash; E-Commerce Store Owner</p>
+            <a href="https://pakzon.github.io" target="_blank" rel="noopener noreferrer" class="case-link">pakzon.github.io &#8599;</a>
+            <div class="score-row">
+              <div class="score score--before"><span>Before</span><strong>3.5</strong><span>AIM Score</span></div>
+              <span class="score-arrow" aria-hidden="true">&#8594;</span>
+              <div class="score score--after"><span>After</span><strong>10.0</strong><span>AIM Score</span></div>
+            </div>
+            <div class="fix-row">
+              <span class="badge badge--bad">18 Contrast Errors</span>
+              <span aria-hidden="true">&#8594;</span>
+              <span class="badge badge--good">0 Errors</span>
+            </div>
+            <p class="improvement">+185% Score Jump &mdash; Clean Audit</p>
+          </article>
+
+          <article class="case-card" role="listitem" aria-labelledby="cs2">
+            <h3 id="cs2">PakVista Realty</h3>
+            <p class="case-client">Malik As &mdash; Real Estate Portal Owner</p>
+            <a href="https://pakvistareality.github.io" target="_blank" rel="noopener noreferrer" class="case-link">pakvistareality.github.io &#8599;</a>
+            <div class="score-row">
+              <div class="score score--before"><span>Before</span><strong>3.4</strong><span>AIM Score</span></div>
+              <span class="score-arrow" aria-hidden="true">&#8594;</span>
+              <div class="score score--after"><span>After</span><strong>10.0</strong><span>AIM Score</span></div>
+            </div>
+            <div class="fix-row">
+              <span class="badge badge--bad">9 Errors &bull; 35 Contrast</span>
+              <span aria-hidden="true">&#8594;</span>
+              <span class="badge badge--good">0 Errors</span>
+            </div>
+            <p class="improvement">+194% Score Jump &mdash; Most Dramatic Fix</p>
+          </article>
+
+          <article class="case-card" role="listitem" aria-labelledby="cs3">
+            <h3 id="cs3">MoodnFood Restaurant</h3>
+            <p class="case-client">M. Waseem &mdash; Restaurant Owner</p>
+            <a href="https://moodnfood.github.io" target="_blank" rel="noopener noreferrer" class="case-link">moodnfood.github.io &#8599;</a>
+            <div class="score-row">
+              <div class="score score--before"><span>Before</span><strong>5.4</strong><span>AIM Score</span></div>
+              <span class="score-arrow" aria-hidden="true">&#8594;</span>
+              <div class="score score--after"><span>After</span><strong>10.0</strong><span>AIM Score</span></div>
+            </div>
+            <div class="fix-row">
+              <span class="badge badge--bad">18 Contrast Errors</span>
+              <span aria-hidden="true">&#8594;</span>
+              <span class="badge badge--good">0 Errors</span>
+            </div>
+            <p class="improvement">+85% Score Jump &mdash; Full Contrast Fix</p>
+          </article>
+
+        </div>
+        <p class="wave-note" role="note">All scores verified by <a href="https://wave.webaim.org" target="_blank" rel="noopener noreferrer">wave.webaim.org &#8599;</a></p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials" aria-labelledby="testimonialsHeading">
+      <div class="container">
+        <p class="eyebrow">Client Stories</p>
+        <h2 id="testimonialsHeading">What Our Clients Say</h2>
+        <div class="testimonials-grid" role="list">
+
+          <article class="testimonial" role="listitem" aria-labelledby="t1">
+            <blockquote><p>&ldquo;Honestly I had no idea my store had these issues. After LevelUp fixed everything, my WAVE score went from 3.5 to 10.0. The report they gave me was clear and professional. I felt confident sharing it with my customers.&rdquo;</p></blockquote>
+            <footer class="t-author">
+              <div class="t-avatar" aria-hidden="true">SK</div>
+              <div><p id="t1" class="t-name">Sara Khan</p><p class="t-role">E-Commerce Store Owner &mdash; Pakzon</p></div>
+            </footer>
+          </article>
+
+          <article class="testimonial" role="listitem" aria-labelledby="t2">
+            <blockquote><p>&ldquo;My site had 35 contrast errors &mdash; I didn&rsquo;t even know what that meant. LevelUp explained everything simply and fixed all 9 errors and all 35 contrast issues. Score went from 3.4 to 10.0. Worth every rupee.&rdquo;</p></blockquote>
+            <footer class="t-author">
+              <div class="t-avatar" aria-hidden="true">MA</div>
+              <div><p id="t2" class="t-name">Malik As</p><p class="t-role">Real Estate Portal Owner &mdash; PakVista Realty</p></div>
+            </footer>
+          </article>
+
+          <article class="testimonial" role="listitem" aria-labelledby="t3">
+            <blockquote><p>&ldquo;I was running ads and wondering why people weren&rsquo;t calling. After the fix, my site score went from 5.4 to 10.0. The process was smooth &mdash; they showed me everything on staging before going live. No surprises.&rdquo;</p></blockquote>
+            <footer class="t-author">
+              <div class="t-avatar" aria-hidden="true">MW</div>
+              <div><p id="t3" class="t-name">M. Waseem</p><p class="t-role">Restaurant Owner &mdash; MoodnFood</p></div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIT FORM -->
+    <section class="section section--alt" id="audit-form" aria-labelledby="formHeading">
+      <div class="container">
+        <div class="form-layout">
+          <div class="form-intro">
+            <p class="eyebrow">Free Offer</p>
+            <h2 id="formHeading">Get Your Free Website Audit</h2>
+            <p>We will check your site using WAVE and send you a full accessibility report &mdash; no cost, no commitment, no sales pressure.</p>
+            <ul class="form-perks" role="list">
+              <li><span aria-hidden="true">&#10003;</span> Full WAVE report of your site</li>
+              <li><span aria-hidden="true">&#10003;</span> List of all errors found</li>
+              <li><span aria-hidden="true">&#10003;</span> Delivered on WhatsApp within 24 hours</li>
+              <li><span aria-hidden="true">&#10003;</span> Zero obligation</li>
+            </ul>
+          </div>
+          <div class="form-wrap">
+            <form id="auditForm" class="audit-form" novalidate aria-label="Free audit request form">
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="req" aria-label="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="Your full name" />
+                <span class="form-error" id="fullNameErr" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="req" aria-label="required">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com" />
+                <span class="form-error" id="emailErr" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="phone">WhatsApp Number <span class="req" aria-label="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="03XX-XXXXXXX" />
+                <span class="form-error" id="phoneErr" role="alert" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="siteUrl">Website URL <span class="req" aria-label="required">*</span></label>
+                <input type="url" id="siteUrl" name="siteUrl" required placeholder="https://yourwebsite.com" />
+                <span class="form-error" id="siteUrlErr" role="alert" aria-live="polite"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">Send Me My Free Audit</button>
+            </form>
+            <div class="form-success" id="formSuccess" hidden role="status" aria-live="polite">
+              <div class="success-icon" aria-hidden="true">&#10003;</div>
+              <h3>Request Received!</h3>
+              <p>We will review your site and send your full WAVE report on WhatsApp within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <p class="eyebrow">Common Questions</p>
+        <h2 id="faqHeading">FAQ</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq1ans">What is website accessibility? <span aria-hidden="true" class="faq-icon">+</span></button>
+            <div id="faq1ans" class="faq-a" hidden><p>It means your website works properly for everyone &mdash; including people with weak eyesight, colour blindness, or those using a keyboard instead of a mouse. Most Pakistani websites fail this standard and lose customers because of it.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq2ans">Will my website go down during the fix? <span aria-hidden="true" class="faq-icon">+</span></button>
+            <div id="faq2ans" class="faq-a" hidden><p>Never. We work on a staging copy of your site first. You approve everything before it goes live. Your live site stays running the whole time.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq3ans">How long does it take? <span aria-hidden="true" class="faq-icon">+</span></button>
+            <div id="faq3ans" class="faq-a" hidden><p>Up to 7 days for the basic package. We deliver faster when possible. You will be updated at every step.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq4ans">Is Rs. 21,500 negotiable? <span aria-hidden="true" class="faq-icon">+</span></button>
+            <div id="faq4ans" class="faq-a" hidden><p>Our pricing reflects professional work with a verified WAVE report included. We offer a free audit first so you can see the value before deciding. The same work costs $150&ndash;300 internationally.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq5ans">What if I am not satisfied? <span aria-hidden="true" class="faq-icon">+</span></button>
+            <div id="faq5ans" class="faq-a" hidden><p>We show you the fixed version on staging. You only pay the remaining 50% after you approve. Zero risk on your side.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq6ans">What platforms do you work with? <span aria-hidden="true" class="faq-icon">+</span></button>
+            <div id="faq6ans" class="faq-a" hidden><p>WordPress, Shopify, Wix, Joomla, custom HTML &mdash; any platform. Accessibility fixes are applied to the HTML output which is universal across all platforms.</p></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="brand" aria-label="LevelUp WCAG Home">
+          <span class="brand__level">Level</span><span class="brand__up">Up</span><span class="brand__tag">WCAG</span>
+        </a>
+        <p>Making Pakistani Websites Work For Everyone.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="footer__contact">
+        <h3>Contact</h3>
+        <ul role="list">
+          <li><a href="https://wa.me/923086324003">WhatsApp: +92 308 6324003</a></li>
+          <li><a href="mailto:levelupwcag@gmail.com">levelupwcag@gmail.com</a></li>
+          <li><a href="https://wave.webaim.org" target="_blank" rel="noopener noreferrer">Verified by WAVE &#8599;</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; <span id="yr"></span> LevelUp WCAG. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
