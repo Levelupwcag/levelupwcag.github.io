@@ -1,134 +1,197 @@
-// LevelUp WCAG — main.js
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const prefersReducedMotion = reducedMotionQuery.matches;
 
-// Footer year
-document.getElementById('yr').textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  setCurrentYear();
+  setupMobileMenu();
+  setupSmoothScroll();
+  setupRevealAnimations();
+  setupProblemCounters();
+  setupResultsCounters();
+  setupCaseProgressBars();
+  setupFaqAccordion();
+  setupLeadForm();
+});
 
-// Scroll to form
-function scrollToForm() {
-  document.getElementById('audit-form').scrollIntoView({ behavior: 'smooth' });
+function setCurrentYear() {
+  const yearNode = document.getElementById("current-year");
+  if (yearNode) {
+    yearNode.textContent = `© ${new Date().getFullYear()}`;
+  }
 }
 
-// Mobile nav toggle
-const navToggle = document.getElementById('navToggle');
-const mobileNav = document.getElementById('mobileNav');
+function setupMobileMenu() {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.getElementById("mobile-menu");
 
-navToggle.addEventListener('click', function () {
-  const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!isOpen));
-  mobileNav.hidden = isOpen;
-});
+  if (!toggle || !menu) return;
 
-// Close mobile nav on link click
-mobileNav.querySelectorAll('a').forEach(function (link) {
-  link.addEventListener('click', function () {
-    navToggle.setAttribute('aria-expanded', 'false');
-    mobileNav.hidden = true;
-  });
-});
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.classList.toggle("is-open", !isOpen);
 
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-    const answerId = btn.getAttribute('aria-controls');
-    const answer = document.getElementById(answerId);
-
-    // Close all
-    document.querySelectorAll('.faq-q').forEach(function (b) {
-      b.setAttribute('aria-expanded', 'false');
-      const id = b.getAttribute('aria-controls');
-      document.getElementById(id).hidden = true;
-    });
-
-    // Open clicked if it was closed
-    if (!isOpen) {
-      btn.setAttribute('aria-expanded', 'true');
-      answer.hidden = false;
+    if (isOpen) {
+      menu.hidden = true;
+    } else {
+      menu.hidden = false;
     }
   });
-});
 
-// Form validation + submit
-const form = document.getElementById('auditForm');
-const formSuccess = document.getElementById('formSuccess');
-
-function showError(fieldId, message) {
-  const input = document.getElementById(fieldId);
-  const err = document.getElementById(fieldId + 'Err');
-  input.setAttribute('aria-invalid', 'true');
-  err.textContent = message;
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.classList.remove("is-open");
+      menu.hidden = true;
+    });
+  });
 }
 
-function clearError(fieldId) {
-  const input = document.getElementById(fieldId);
-  const err = document.getElementById(fieldId + 'Err');
-  input.removeAttribute('aria-invalid');
-  err.textContent = '';
+function setupSmoothScroll() {
+  const scrollLinks = document.querySelectorAll('a[href^="#"], [data-scroll-target]');
+
+  scrollLinks.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      let targetSelector = "";
+
+      if (element.hasAttribute("data-scroll-target")) {
+        targetSelector = element.getAttribute("data-scroll-target");
+      } else {
+        targetSelector = element.getAttribute("href");
+      }
+
+      if (!targetSelector || targetSelector === "#" || targetSelector === "#!") return;
+
+      const target = document.querySelector(targetSelector);
+      if (!target) return;
+
+      event.preventDefault();
+      const header = document.querySelector(".site-header");
+      const headerOffset = header ? header.offsetHeight + 16 : 0;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: prefersReducedMotion ? "auto" : "smooth"
+      });
+    });
+  });
 }
 
-function validateForm() {
-  let valid = true;
+function setupRevealAnimations() {
+  const revealItems = document.querySelectorAll(".reveal");
 
-  const name = document.getElementById('fullName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const url = document.getElementById('siteUrl').value.trim();
+  if (!revealItems.length) return;
 
-  clearError('fullName');
-  clearError('email');
-  clearError('phone');
-  clearError('siteUrl');
-
-  if (!name) { showError('fullName', 'Please enter your full name.'); valid = false; }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'Please enter a valid email address.'); valid = false; }
-  if (!phone) { showError('phone', 'Please enter your WhatsApp number.'); valid = false; }
-  if (!url) { showError('siteUrl', 'Please enter your website URL.'); valid = false; }
-
-  return valid;
-}
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  if (!validateForm()) return;
-
-  const name = document.getElementById('fullName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const url = document.getElementById('siteUrl').value.trim();
-
-  // Save to localStorage
-  const leads = JSON.parse(localStorage.getItem('levelup_leads') || '[]');
-  leads.push({ name, email, phone, url, date: new Date().toISOString() });
-  localStorage.setItem('levelup_leads', JSON.stringify(leads));
-
-  // WhatsApp redirect with pre-filled message
-  const msg = encodeURIComponent(
-    'New Free Audit Request:\n\n' +
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Phone: ' + phone + '\n' +
-    'Website: ' + url
-  );
-  const waUrl = 'https://wa.me/923086324003?text=' + msg;
-
-  // Show success message
-  form.hidden = true;
-  formSuccess.hidden = false;
-  formSuccess.focus();
-
-  // Open WhatsApp after short delay
-  setTimeout(function () {
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
-  }, 800);
-});
-
-// Sticky header shadow on scroll
-window.addEventListener('scroll', function () {
-  const header = document.querySelector('.site-header');
-  if (window.scrollY > 10) {
-    header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-  } else {
-    header.style.boxShadow = 'none';
+  if (prefersReducedMotion) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
   }
-}, { passive: true });
+
+  const observer = new IntersectionObserver(
+    (entries, revealObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+function setupProblemCounters() {
+  const counters = document.querySelectorAll(".problem-stats .stat-value");
+  if (!counters.length) return;
+
+  if (prefersReducedMotion) {
+    counters.forEach((counter) => {
+      setCounterFinalValue(counter);
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, counterObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+}
+
+function setupResultsCounters() {
+  const summary = document.querySelector("[data-results-summary]");
+  const counters = document.querySelectorAll(".results-counter");
+  if (!summary || !counters.length) return;
+
+  let countersStarted = false;
+
+  if (prefersReducedMotion) {
+    counters.forEach((counter) => setCounterFinalValue(counter));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, summaryObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || countersStarted) return;
+        countersStarted = true;
+        counters.forEach((counter) => animateCounter(counter));
+        summaryObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  observer.observe(summary);
+}
+
+function setupCaseProgressBars() {
+  const caseCards = document.querySelectorAll(".progress-trigger");
+  if (!caseCards.length) return;
+
+  if (prefersReducedMotion) {
+    caseCards.forEach((card) => card.classList.add("is-filled"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, cardObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-filled");
+        cardObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  caseCards.forEach((card) => observer.observe(card));
+}
+
+function animateCounter(element) {
+  if (!element || element.dataset.started === "true") return;
+
+  element.dataset.started = "true";
+
+  const type = element.dataset.counterType || "integer";
+  const targetValue = Number(element.dataset.target || 0);
+  const denominator = Number(element.dataset.denominator || 0);
+  const suffix = element.dataset.suffix || "";
+  const duration = 1200;
+  const intervalTime = 16;
+  const totalSteps = Math.max(1, Math.round(duration / intervalTime));
+  let currentStep = 0;
+
+  const timer = setInterval(() => {
+    currentStep += 1;
+    const progress = Math.min(currentStep / totalSteps, 1);
+    const currentValue = targetValue *
